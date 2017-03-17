@@ -87,12 +87,15 @@ hParseInt(const unsigned char **buf, size_t *lenBuf)
 #define PARSER(ParserName) \
 int ln_parse##ParserName(const char *const str, const size_t strLen, \
 	size_t *const offs,       \
-	__attribute__((unused)) const ln_fieldList_t *node,  \
+	const ln_fieldList_t *node,  \
 	size_t *parsed,                                      \
 	__attribute__((unused)) struct json_object **value) \
 { \
 	int r = LN_WRONGPARSER; \
-	__attribute__((unused)) es_str_t *ed = node->data;  \
+	__attribute__((unused)) es_str_t *ed = NULL; \
+	if(node != NULL) { \
+		ed = node->data;  \
+	} \
 	*parsed = 0;
 
 #define FAILParser \

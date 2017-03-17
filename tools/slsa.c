@@ -1146,7 +1146,6 @@ preprocessLine(const char *const __restrict__ buf,
 	char *tocopy;
 	size_t tocopylen;
 	size_t iout;
-
 	iout = 0;
 	for(size_t i = 0 ; i < buflen ; ) {
 		/* in this stage, we must only detect syntaxes that we are
@@ -1174,7 +1173,6 @@ preprocessLine(const char *const __restrict__ buf,
 			tocopy = NULL;
 			nproc = 1;
 		}
-
 		/* copy to output buffer */
 		if(tocopy == NULL) {
 			bufout[iout++] = buf[i];
@@ -1193,7 +1191,6 @@ processFile(FILE *fp)
 {
 	char lnbuf[MAXLINE];
 	char lnpreproc[MAXLINE];
-
 	while(!feof(fp)) {
 		reportProgress("reading");
 		size_t i;
